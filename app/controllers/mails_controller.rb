@@ -4,7 +4,7 @@ class MailsController < ApplicationController
   
   def create
     # if SampleMailer.send_mail(mail_params[:to], mail_params[:subject])
-    if SampleMailer.send_mail
+    if SampleMailer.send_mail.deliver_now
       flash[:success] = "送信成功"
     else
       flash[:danger] = "送信失敗"
