@@ -3,8 +3,7 @@ class MailsController < ApplicationController
   end
   
   def create
-    # if SampleMailer.send_mail(mail_params[:to], mail_params[:subject])
-    if SampleMailer.send_mail.deliver_now
+    if SampleMailer.send_mail(mail_params[:to], mail_params[:subject], mail_params[:text]).deliver_now
       flash[:success] = "送信成功"
     else
       flash[:danger] = "送信失敗"
@@ -16,6 +15,6 @@ class MailsController < ApplicationController
   private
 
     def mail_params
-      params.permit(:to, :subject, :text)
+      params.require(:mail).permit(:to, :subject, :text)
     end
 end
