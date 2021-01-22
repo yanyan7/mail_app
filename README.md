@@ -1,3 +1,2 @@
 # Railsでのメール送信の練習用プログラム
-development環境でのプレビュー表示まで可能。  
-production環境は未設定のため、実際の送信は不可。
+メール送信を行うには、config/environment/development.rb の:user_nameにGmailのアドレス、:passwordにアプリパスワードを入れる。
